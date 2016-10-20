@@ -21,7 +21,7 @@ With BrickKit, you can create complex and responsive layouts in a simple way.
 ## Installation Instructions
 Installation is simple.  You just need Cocoapods and it is a matter of adding this to your podfile:
 ```
-pod 'BrickKit', git: 'https://github.com/wayfair/brickkit-ios.git', branch: 'master'
+pod 'BrickKit'
 ```
 
 See [Installation Details](#Installation Details)
