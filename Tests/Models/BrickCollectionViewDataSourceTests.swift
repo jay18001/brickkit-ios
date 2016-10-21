@@ -19,7 +19,7 @@ class BrickCollectionViewDataSourceTests: XCTestCase {
     func testNoBrickCollectionView() {
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 320, height: 480), collectionViewLayout: UICollectionViewFlowLayout())
         let brickView = BrickCollectionView()
-        brickView.setSection(BrickSection(bricks: [ DummyBrick() ]))
+//        brickView.setSection(BrickSection(bricks: [ DummyBrick() ]))
         collectionView.dataSource = brickView
 
         expectFatalError("Only BrickCollectionViews are supported") {

@@ -21,32 +21,37 @@ private struct FatalErrorHolder {
 }
 
 @noreturn func testFatalError(message: String = "", file: StaticString = #file, line: UInt = #line) {
-    FatalErrorHolder.expectation?.fulfill()
     FatalErrorHolder.assertionMessage = message
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), fulfillExpectation)
     unreachable()
+}
+
+func fulfillExpectation() {
+    FatalErrorHolder.expectation?.fulfill()
 }
 
 // This is a `noreturn` function that pauses forever
 @noreturn func unreachable() {
     repeat {
-        NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: timeInterval))
+        NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate.distantFuture())
+        print("IN THE LOOP")
     } while (true)
 }
 
 extension XCTestCase {
 
     func unlockFatalError() {
-//        FatalErrorHolder.expectation = nil
+        FatalErrorHolder.expectation = nil
     }
 
     func expectFatalError(expectedMessage: String? = nil, testcase: () -> Void) {
 //        return
 
-        repeat {
-            if !NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: timeInterval)) {
-                NSThread.sleepForTimeInterval(timeInterval)
-            }
-        } while(FatalErrorHolder.expectation != nil)
+//        repeat {
+//            if !NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: timeInterval)) {
+//                NSThread.sleepForTimeInterval(timeInterval)
+//            }
+//        } while(FatalErrorHolder.expectation != nil)
 
         FatalErrorHolder.expectation = expectationWithDescription("expectingFatalError")
 
@@ -66,7 +71,7 @@ extension XCTestCase {
             }
 
             // clean up
-//            FatalErrorUtil.restoreFatalError()
+            FatalErrorUtil.restoreFatalError()
         }
     }
 }
