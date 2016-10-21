@@ -143,6 +143,8 @@
 		93739BB81DA454AB00DD4B81 /* ButtonBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93739BB41DA454AB00DD4B81 /* ButtonBrick.swift */; };
 		93902D391DA4726900BC3BA1 /* image0.png in Resources */ = {isa = PBXBuildFile; fileRef = 93902D381DA4726900BC3BA1 /* image0.png */; };
 		93902D3B1DA4728C00BC3BA1 /* ImageBrickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93902D3A1DA4728C00BC3BA1 /* ImageBrickTests.swift */; };
+		9395E7301DB9D30E0081C9E7 /* BrickFatalErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395E72F1DB9D30E0081C9E7 /* BrickFatalErrorTests.swift */; };
+		9395E7311DB9D30E0081C9E7 /* BrickFatalErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9395E72F1DB9D30E0081C9E7 /* BrickFatalErrorTests.swift */; };
 		93D9EB9D1DA4051B00D8C87A /* BrickKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D9EB931DA4051B00D8C87A /* BrickKit.framework */; };
 		93D9EBE81DA4057000D8C87A /* BrickLayoutBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D9EBAF1DA4057000D8C87A /* BrickLayoutBehavior.swift */; };
 		93D9EBE91DA4057000D8C87A /* CardLayoutBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D9EBB01DA4057000D8C87A /* CardLayoutBehavior.swift */; };
@@ -291,6 +293,7 @@
 		93739BB41DA454AB00DD4B81 /* ButtonBrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonBrick.swift; sourceTree = "<group>"; };
 		93902D381DA4726900BC3BA1 /* image0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image0.png; sourceTree = "<group>"; };
 		93902D3A1DA4728C00BC3BA1 /* ImageBrickTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrickTests.swift; sourceTree = "<group>"; };
+		9395E72F1DB9D30E0081C9E7 /* BrickFatalErrorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrickFatalErrorTests.swift; sourceTree = "<group>"; };
 		93D9EB931DA4051B00D8C87A /* BrickKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BrickKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D9EB9C1DA4051B00D8C87A /* BrickKitTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BrickKitTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D9EBAF1DA4057000D8C87A /* BrickLayoutBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrickLayoutBehavior.swift; sourceTree = "<group>"; };
@@ -833,6 +836,7 @@
 				93D9EC4D1DA4057900D8C87A /* DataSources.swift */,
 				9372C5061DA40735007D7EA1 /* FatalErrorTests.swift */,
 				93D9EC4E1DA4057900D8C87A /* XCTests.swift */,
+				9395E72F1DB9D30E0081C9E7 /* BrickFatalErrorTests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1126,6 +1130,7 @@
 				4E9A255B1DABECF500D7EA99 /* BrickLayoutSectionTests.swift in Sources */,
 				4E9A25541DABECF500D7EA99 /* BrickAttributesZoneTests.swift in Sources */,
 				4E9A25661DABECFF00D7EA99 /* FatalErrorTests.swift in Sources */,
+				9395E7311DB9D30E0081C9E7 /* BrickFatalErrorTests.swift in Sources */,
 				4E9A25471DABECDF00D7EA99 /* MinimumStickyLayoutBehaviorTests.swift in Sources */,
 				4E9A25E01DAC2AF400D7EA99 /* AsynchronousResizableBrick.swift in Sources */,
 				4E9A25561DABECF500D7EA99 /* BrickFlowLayoutEdgeInsetsTests.swift in Sources */,
@@ -1244,6 +1249,7 @@
 				93D9EC581DA4057900D8C87A /* MaxZIndexBehaviorTests.swift in Sources */,
 				93D9EC741DA4057900D8C87A /* BrickFlowLayoutSectionTests.swift in Sources */,
 				93D9EC6C1DA4057900D8C87A /* ImageDownloaderCellTests.swift in Sources */,
+				9395E7301DB9D30E0081C9E7 /* BrickFatalErrorTests.swift in Sources */,
 				93D9EC7A1DA4057900D8C87A /* BrickCollectionViewDataSourceTests.swift in Sources */,
 				930054051DA7D8A000239A13 /* BaseBrickCellTests.swift in Sources */,
 				93D9EC611DA4057900D8C87A /* LabelBrickTests.swift in Sources */,

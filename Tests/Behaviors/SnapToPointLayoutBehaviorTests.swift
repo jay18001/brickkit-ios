@@ -34,17 +34,6 @@ class SnapToPointLayoutBehaviorTests: XCTestCase {
         unlockFatalError()
     }
 
-    func testWithoutCollectionView() {
-        let layout = BrickFlowLayout()
-        let snapBehavior = SnapToPointLayoutBehavior(scrollDirection: .Horizontal(.Center))
-        layout.behaviors.insert(snapBehavior)
-
-        expectFatalError {
-            layout.targetContentOffsetForProposedContentOffset(CGPoint.zero, withScrollingVelocity: CGPoint.zero)
-        }
-
-    }
-
     func testWithoutBricks() {
         let snapBehavior = SnapToPointLayoutBehavior(scrollDirection: .Horizontal(.Center))
         brickView.layout.behaviors.insert(snapBehavior)

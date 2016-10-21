@@ -50,16 +50,6 @@ class BrickLayoutSectionTests: XCTestCase {
         XCTAssertTrue(section.attributes.isEmpty)
     }
 
-    func testNoInvalidateWithoutDataSource() {
-        let section = createSection([], heights: [], edgeInsets: UIEdgeInsetsZero, inset: 0, sectionWidth: 320)
-
-        section.dataSource = nil
-
-        expectFatalError { 
-            section.invalidate(at: 0, updatedAttributes: nil)
-        }
-    }
-
     func testSimpleRows() {
         let section = createSection([1, half, half, 1], heights: [50, 50, 50, 50], edgeInsets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), inset: 5, sectionWidth: 320)
 

@@ -22,19 +22,18 @@ private struct FatalErrorHolder {
 
 @noreturn func testFatalError(message: String = "", file: StaticString = #file, line: UInt = #line) {
     FatalErrorHolder.assertionMessage = message
-    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), fulfillExpectation)
+    FatalErrorHolder.expectation?.fulfill()
+//    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), fulfillExpectation)
     unreachable()
 }
 
 func fulfillExpectation() {
-    FatalErrorHolder.expectation?.fulfill()
 }
 
 // This is a `noreturn` function that pauses forever
 @noreturn func unreachable() {
     repeat {
-        NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate.distantFuture())
-        print("IN THE LOOP")
+        NSRunLoop.currentRunLoop().run()
     } while (true)
 }
 

@@ -24,12 +24,6 @@ class BrickCollectionViewTests: XCTestCase {
         unlockFatalError()
     }
 
-    func testSetWrongCollectionViewLayout() {
-        expectFatalError("BrickCollectionView: the layout needs to be of type `BrickLayout`") {
-            self.brickView.collectionViewLayout = UICollectionViewFlowLayout()
-        }
-    }
-
     func testDeinit() {
         brickView = CustomBrickCollectionView(frame: CGRect(x: 0, y: 0, width: 320, height: 480))
         expectationForNotification("CustomBrickCollectionView.deinit", object: nil, handler: nil)
@@ -69,12 +63,6 @@ class BrickCollectionViewTests: XCTestCase {
 
         let cell = brickView.cellForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 1)) as? DummyBrickWithoutNibCell
         XCTAssertNotNil(cell)
-    }
-
-    func testRegisterBrickNoNibOrClass() {
-        expectFatalError("Nib or cell class not found") {
-            self.brickView.registerBrickClass(DummyBrickWithNoNib.self)
-        }
     }
 
     func testBrickInfo() {
@@ -184,16 +172,6 @@ class BrickCollectionViewTests: XCTestCase {
         XCTAssertEqual(brickView.indexPathsForBricksWithIdentifier("Brick3"), [])
     }
 
-    func testFatalErrorForBrickInfo() {
-        brickView.registerBrickClass(DummyBrick.self)
-        brickView.setSection(BrickSection(bricks: [ DummyBrick() ]))
-
-        let indexPath = NSIndexPath(forItem: 1, inSection: 1)
-        expectFatalError("Brick and index not found at indexPath: SECTION - \(indexPath.section) - ITEM: \(indexPath.item). This should never happen") {
-            self.brickView.brickInfo(at: indexPath)
-        }
-    }
-
     func testReloadBricks() {
         brickView.registerBrickClass(DummyBrick.self)
         let brick = DummyBrick(width: .Ratio(ratio: 1/10))
@@ -274,22 +252,6 @@ class BrickCollectionViewTests: XCTestCase {
 
         let cell = brickView.cellForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 1)) as? DummyBrickCell
         XCTAssertEqual(cell?.frame, CGRect(x: 0, y: 0, width: 320, height: 100))
-    }
-
-    func testCalculateSectionThatDoesntExist() {
-        brickView.registerBrickClass(DummyBrick.self)
-
-        let section = BrickSection(bricks: [
-            DummyBrick("DummyBrick")
-            ]
-        )
-        brickView.setSection(section)
-        brickView.layoutSubviews()
-
-        expectFatalError {
-            let flow = self.brickView.collectionViewLayout as! BrickFlowLayout
-            flow.calculateSection(for: 5, with: nil, containedInWidth: 0, at: CGPoint.zero)
-        }
     }
 
     func testInvalidateRepeatCountForCollectionBrick() {

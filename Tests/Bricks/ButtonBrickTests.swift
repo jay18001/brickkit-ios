@@ -182,34 +182,6 @@ class ButtonBrickTests: XCTestCase {
         XCTAssertEqual(buttonBrick.title, "")
     }
 
-    func testCantSetTextOfButtonBrickWithWrongDataSource() {
-        expectFatalError {
-            let buttonBrick = ButtonBrick(dataSource: FixedButtonDataSource())
-            buttonBrick.title = "Hello World"
-        }
-    }
-
-    func testCantGetTextOfButtonBrickWithWrongDataSource() {
-        expectFatalError {
-            let buttonBrick = ButtonBrick(dataSource: FixedButtonDataSource())
-            let _ = buttonBrick.title
-        }
-    }
-
-    func testCantSetConfigureCellBlockOfButtonBrickWithWrongDataSource() {
-        expectFatalError {
-            let buttonBrick = ButtonBrick(dataSource: FixedButtonDataSource())
-            buttonBrick.configureButtonBlock = { cell in
-            }
-        }
-    }
-
-    func testCantGetConfigureCellBlockOfButtonBrickWithWrongDataSource() {
-        expectFatalError {
-            let buttonBrick = ButtonBrick(dataSource: FixedButtonDataSource())
-            let _ = buttonBrick.configureButtonBlock
-        }
-    }
 
     func testButtonBrickChevronEdgeInsets() {
         brickCollectionView.registerNib(ButtonBrickNibs.Chevron, forBrickWithIdentifier: ButtonBrickIdentifier)

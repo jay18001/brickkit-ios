@@ -148,35 +148,6 @@ class LabelBrickTests: XCTestCase {
         XCTAssertEqual(labelBrick.text, "")
     }
 
-    func testCantSetTextOfLabelBrickWithWrongDataSource() {
-        expectFatalError {
-            let labelBrick = LabelBrick(dataSource: FixedLabelDataSource())
-            labelBrick.text = "Hello World"
-        }
-    }
-
-    func testCantGetTextOfLabelBrickWithWrongDataSource() {
-        expectFatalError {
-            let labelBrick = LabelBrick(dataSource: FixedLabelDataSource())
-            let _ = labelBrick.text
-        }
-    }
-
-    func testCantSetConfigureCellBlockOfLabelBrickWithWrongDataSource() {
-        expectFatalError {
-            let labelBrick = LabelBrick(dataSource: FixedLabelDataSource())
-            labelBrick.configureCellBlock = { cell in
-            }
-        }
-    }
-
-    func testCantGetConfigureCellBlockOfLabelBrickWithWrongDataSource() {
-        expectFatalError {
-            let labelBrick = LabelBrick(dataSource: FixedLabelDataSource())
-            let _ = labelBrick.configureCellBlock
-        }
-    }
-
     func testLabelModelWithTextColor() {
         let cell = setupLabelBrickWithModel(LabelBrickCellModel(text: "Hello World", textColor: UIColor.blueColor()))
         XCTAssertEqual(cell?.label.textColor, UIColor.blueColor())

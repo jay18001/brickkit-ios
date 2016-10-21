@@ -369,21 +369,6 @@ class BrickSectionDataSourceTests: XCTestCase {
         XCTAssertEqual(section.currentSectionCounts(in: collection), expectedResultAfter)
     }
 
-    /// Repeat count on a BrickSection is not allowed
-    func testRepeatCountOnSection() {
-        let section = BrickSection(bricks: [
-            BrickSection("Section", bricks: [
-                Brick("Brick"),
-            ])
-        ])
-
-        let fixed = FixedRepeatCountDataSource(repeatCountHash: ["Section": 5])
-        section.repeatCountDataSource = fixed
-
-        expectFatalError { 
-            section.currentSectionCounts(in: self.collection)
-        }
-    }
 
     /// Allow to set the repeat count on a subsection
     func testMultipeSectionCountsRepeatCounts() {

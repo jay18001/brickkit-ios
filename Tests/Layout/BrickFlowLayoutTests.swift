@@ -167,41 +167,6 @@ class BrickFlowLayoutTests: BrickFlowLayoutBaseTests {
         XCTAssertEqual(layout.collectionViewContentSize(), CGSize(width: 320, height: 210))
     }
 
-    func testCalculateSectionsIfNeededWithoutDataSource() {
-        let brickFlowLayout = BrickFlowLayout()
-        expectFatalError("No dataSource was set for BrickFlowLayout") { 
-            brickFlowLayout.calculateSectionsIfNeeded()
-        }
-    }
-
-    func testCalculateZIndexWithoutCollectionView() {
-        let brickFlowLayout = BrickFlowLayout()
-        expectFatalError {
-            brickFlowLayout.calculateZIndex()
-        }
-    }
-
-    func testCalculateSectionsWithoutCollectionView() {
-        let brickFlowLayout = BrickFlowLayout()
-        expectFatalError {
-            brickFlowLayout.calculateSections()
-        }
-    }
-
-    func testCalculateSectionWithoutCollectionView() {
-        let brickFlowLayout = BrickFlowLayout()
-        expectFatalError {
-            brickFlowLayout.calculateSection(for: 5, with: nil, containedInWidth: 320, at: CGPoint.zero)
-        }
-    }
-
-    func testUpdateHeightWithoutDataSource() {
-        let brickFlowLayout = BrickFlowLayout()
-        expectFatalError {
-            brickFlowLayout.updateHeight(NSIndexPath(forItem: 0, inSection: 0), newHeight: 320)
-        }
-    }
-
     func testShouldInvalidateLayoutForPreferredLayoutAttributesWithUICollectionViewLayoutAttributes() {
         let brickFlowLayout = BrickFlowLayout()
         let attributes = UICollectionViewLayoutAttributes(forCellWithIndexPath: NSIndexPath(forItem: 0, inSection: 0))
