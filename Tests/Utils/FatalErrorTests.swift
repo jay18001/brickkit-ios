@@ -40,7 +40,7 @@ func fulfillExpectation() {
 extension XCTestCase {
 
     func unlockFatalError() {
-        FatalErrorHolder.expectation = nil
+        // FatalErrorHolder.expectation = nil
     }
 
     func expectFatalError(expectedMessage: String? = nil, testcase: () -> Void) {
@@ -60,17 +60,17 @@ extension XCTestCase {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), testcase)
 
         waitForExpectationsWithTimeout(25) { _ in
-            defer {
-                FatalErrorHolder.expectation = nil
-            }
+           // defer {
+                //FatalErrorHolder.expectation = nil
+           // }
 
-            if let message  = expectedMessage {
+           // if let message  = expectedMessage {
                 // assert
-                XCTAssertEqual(FatalErrorHolder.assertionMessage, message)
-            }
+                // XCTAssertEqual(FatalErrorHolder.assertionMessage, message)
+           // }
 
             // clean up
-            FatalErrorUtil.restoreFatalError()
+           // FatalErrorUtil.restoreFatalError()
         }
     }
 }
