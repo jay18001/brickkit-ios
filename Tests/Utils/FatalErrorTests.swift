@@ -44,7 +44,11 @@ extension XCTestCase {
     }
 
     func expectFatalError(expectedMessage: String? = nil, testcase: () -> Void) {
-       return
+
+        return
+    }
+    func expectFatalError2(expectedMessage: String? = nil, testcase: () -> Void) {
+
 
 //        repeat {
 //            if !NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: timeInterval)) {
