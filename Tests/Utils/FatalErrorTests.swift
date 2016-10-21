@@ -10,40 +10,45 @@ import XCTest
 @testable import BrickKit
 
 private var locked = false
-private let timeInterval: NSTimeInterval = 0.2
+private let timeInterval: NSTimeInterval = 0.5
 private let lockQueue = dispatch_queue_create("com.test.LockQueue", nil)
-private var expectation: XCTestExpectation!
-private var assertionMessage: String?
+//private var expectation: XCTestExpectation!
+//private var assertionMessage: String?
+
+private struct FatalErrorHolder {
+    static var expectation: XCTestExpectation?
+    static var assertionMessage: String?
+}
 
 @noreturn func testFatalError(message: String = "", file: StaticString = #file, line: UInt = #line) {
-    expectation.fulfill()
-    assertionMessage = message
+    FatalErrorHolder.expectation?.fulfill()
+    FatalErrorHolder.assertionMessage = message
     unreachable()
 }
 
 // This is a `noreturn` function that pauses forever
 @noreturn func unreachable() {
     repeat {
-        NSRunLoop.currentRunLoop().run()
+        NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: timeInterval))
     } while (true)
 }
 
 extension XCTestCase {
 
     func unlockFatalError() {
-        expectation = nil
+//        FatalErrorHolder.expectation = nil
     }
 
     func expectFatalError(expectedMessage: String? = nil, testcase: () -> Void) {
 //        return
-        
+
         repeat {
             if !NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: timeInterval)) {
                 NSThread.sleepForTimeInterval(timeInterval)
             }
-        } while(expectation != nil)
+        } while(FatalErrorHolder.expectation != nil)
 
-        expectation = expectationWithDescription("expectingFatalError")
+        FatalErrorHolder.expectation = expectationWithDescription("expectingFatalError")
 
         FatalErrorUtil.replaceFatalError(testFatalError)
 
@@ -52,12 +57,12 @@ extension XCTestCase {
 
         waitForExpectationsWithTimeout(5) { _ in
             defer {
-                expectation = nil
+                FatalErrorHolder.expectation = nil
             }
 
             if let message  = expectedMessage {
                 // assert
-                XCTAssertEqual(assertionMessage, message)
+                XCTAssertEqual(FatalErrorHolder.assertionMessage, message)
             }
 
             // clean up
