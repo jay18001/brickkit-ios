@@ -1,6 +1,8 @@
 # BrickKit is a delightful layout library for iOS.  It is written entirely in Swift!
 
 [![Build Status](https://travis-ci.org/wayfair/brickkit-ios.svg)](https://travis-ci.org/wayfair/brickkit-ios)
+[![Build Status](https://img.shields.io/cocoapods/v/BrickKit.svg)](http://cocoapods.org/pods/BrickKit)
+
 
 With BrickKit, you can create complex and responsive layouts in a simple way.
 

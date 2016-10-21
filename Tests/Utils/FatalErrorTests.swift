@@ -43,6 +43,10 @@ extension XCTestCase {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), testcase)
 
         waitForExpectationsWithTimeout(5) { _ in
+            defer {
+                locked = false
+            }
+
             if let message  = expectedMessage {
                 // assert
                 XCTAssertEqual(assertionMessage, message)
@@ -50,8 +54,7 @@ extension XCTestCase {
 
             // clean up
             FatalErrorUtil.restoreFatalError()
-            
-//            locked = false
+
         }
     }
 }
