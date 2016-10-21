@@ -9,8 +9,17 @@
 import XCTest
 @testable import BrickKit
 
+private var locked = false
+
 extension XCTestCase {
+
     func expectFatalError(expectedMessage: String? = nil, testcase: () -> Void) {
+
+        repeat {
+            NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: 0.1))
+        } while(locked)
+
+        locked = true
 
         // arrange
         let expectation = expectationWithDescription("expectingFatalError")
@@ -33,6 +42,8 @@ extension XCTestCase {
 
             // clean up
             FatalErrorUtil.restoreFatalError()
+
+            locked = false
         }
     }
 }
