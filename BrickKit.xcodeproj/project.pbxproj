@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E15F9311DBA5EAC00BBD363 /* SceneKitBrick.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E15F92F1DBA5EAC00BBD363 /* SceneKitBrick.xib */; };
+		4E15F9321DBA5EAC00BBD363 /* SpriteKitBrick.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E15F9301DBA5EAC00BBD363 /* SpriteKitBrick.xib */; };
+		4E15F9361DBA5EBE00BBD363 /* SceneKitBrick.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E15F9341DBA5EBE00BBD363 /* SceneKitBrick.xib */; };
+		4E15F9371DBA5EBE00BBD363 /* SpriteKitBrick.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E15F9351DBA5EBE00BBD363 /* SpriteKitBrick.xib */; };
+		4E15F93B1DBA5F0600BBD363 /* SceneKitBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15F9391DBA5F0600BBD363 /* SceneKitBrick.swift */; };
+		4E15F93C1DBA5F0600BBD363 /* SceneKitBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15F9391DBA5F0600BBD363 /* SceneKitBrick.swift */; };
+		4E15F93D1DBA5F0600BBD363 /* SpriteKitBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15F93A1DBA5F0600BBD363 /* SpriteKitBrick.swift */; };
+		4E15F93E1DBA5F0600BBD363 /* SpriteKitBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E15F93A1DBA5F0600BBD363 /* SpriteKitBrick.swift */; };
+		4E15F94E1DBA607700BBD363 /* SceneKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E15F94D1DBA607700BBD363 /* SceneKit.framework */; };
+		4E15F9501DBA607E00BBD363 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E15F94F1DBA607E00BBD363 /* SpriteKit.framework */; };
 		4E387C561DAEAB350087820E /* BrickAppearBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F9B4D11DAD686E00927BE6 /* BrickAppearBehavior.swift */; };
 		4E387C571DAEAB380087820E /* BrickAppearBehaviorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F9B4D31DAD690400927BE6 /* BrickAppearBehaviorTests.swift */; };
 		4E3BD8E21DB5190100541900 /* DummyFocusableBrick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E3BD8E01DB5190100541900 /* DummyFocusableBrick.swift */; };
@@ -245,6 +255,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E15F92F1DBA5EAC00BBD363 /* SceneKitBrick.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SceneKitBrick.xib; sourceTree = "<group>"; };
+		4E15F9301DBA5EAC00BBD363 /* SpriteKitBrick.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpriteKitBrick.xib; sourceTree = "<group>"; };
+		4E15F9341DBA5EBE00BBD363 /* SceneKitBrick.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SceneKitBrick.xib; sourceTree = "<group>"; };
+		4E15F9351DBA5EBE00BBD363 /* SpriteKitBrick.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpriteKitBrick.xib; sourceTree = "<group>"; };
+		4E15F9391DBA5F0600BBD363 /* SceneKitBrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneKitBrick.swift; sourceTree = "<group>"; };
+		4E15F93A1DBA5F0600BBD363 /* SpriteKitBrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteKitBrick.swift; sourceTree = "<group>"; };
+		4E15F94D1DBA607700BBD363 /* SceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SceneKit.framework; path = System/Library/Frameworks/SceneKit.framework; sourceTree = SDKROOT; };
+		4E15F94F1DBA607E00BBD363 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		4E3BD8E01DB5190100541900 /* DummyFocusableBrick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyFocusableBrick.swift; sourceTree = "<group>"; };
 		4E3BD8E31DB51A9700541900 /* DummyFocusableBrick.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DummyFocusableBrick.xib; sourceTree = "<group>"; };
 		4E9A25031DABEB3400D7EA99 /* BrickKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BrickKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -397,6 +415,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E15F9501DBA607E00BBD363 /* SpriteKit.framework in Frameworks */,
+				4E15F94E1DBA607700BBD363 /* SceneKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +431,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E15F92E1DBA5EAC00BBD363 /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				4E15F92F1DBA5EAC00BBD363 /* SceneKitBrick.xib */,
+				4E15F9301DBA5EAC00BBD363 /* SpriteKitBrick.xib */,
+			);
+			path = SpriteKit;
+			sourceTree = "<group>";
+		};
+		4E15F9331DBA5EBE00BBD363 /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				4E15F9341DBA5EBE00BBD363 /* SceneKitBrick.xib */,
+				4E15F9351DBA5EBE00BBD363 /* SpriteKitBrick.xib */,
+			);
+			path = SpriteKit;
+			sourceTree = "<group>";
+		};
+		4E15F9381DBA5F0600BBD363 /* Spritekit */ = {
+			isa = PBXGroup;
+			children = (
+				4E15F9391DBA5F0600BBD363 /* SceneKitBrick.swift */,
+				4E15F93A1DBA5F0600BBD363 /* SpriteKitBrick.swift */,
+			);
+			path = Spritekit;
+			sourceTree = "<group>";
+		};
+		4E15F94C1DBA607700BBD363 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E15F94F1DBA607E00BBD363 /* SpriteKit.framework */,
+				4E15F94D1DBA607700BBD363 /* SceneKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4E9A256F1DAC0EAB00D7EA99 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +479,7 @@
 		4E9A25711DAC0EAB00D7EA99 /* Bricks */ = {
 			isa = PBXGroup;
 			children = (
+				4E15F92E1DBA5EAC00BBD363 /* SpriteKit */,
 				4E9A25721DAC0EAB00D7EA99 /* Button */,
 				4E9A25751DAC0EAB00D7EA99 /* Collection */,
 				4E9A25771DAC0EAB00D7EA99 /* Image */,
@@ -479,6 +536,7 @@
 		4E9A259F1DAC216A00D7EA99 /* Bricks */ = {
 			isa = PBXGroup;
 			children = (
+				4E15F9331DBA5EBE00BBD363 /* SpriteKit */,
 				4E9A25A01DAC216A00D7EA99 /* Button */,
 				4E9A25A31DAC216A00D7EA99 /* Collection */,
 				4E9A25A51DAC216A00D7EA99 /* Image */,
@@ -607,6 +665,7 @@
 				93739B951DA4548F00DD4B81 /* Resources */,
 				93D9EBAD1DA4057000D8C87A /* Source */,
 				93D9EC181DA4057900D8C87A /* Tests */,
+				4E15F94C1DBA607700BBD363 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -659,6 +718,7 @@
 		93D9EBBF1DA4057000D8C87A /* Bricks */ = {
 			isa = PBXGroup;
 			children = (
+				4E15F9381DBA5F0600BBD363 /* Spritekit */,
 				93739BB31DA454AB00DD4B81 /* Button */,
 				93739BAD1DA454AB00DD4B81 /* Collection */,
 				93739BB11DA454AB00DD4B81 /* Image */,
@@ -1003,6 +1063,8 @@
 				4E9A25B81DAC222D00D7EA99 /* ButtonBrickWithChevron.xib in Resources */,
 				4E9A25BE1DAC26F000D7EA99 /* LabelBrick.xib in Resources */,
 				4E9A25BA1DAC22E300D7EA99 /* CollectionBrick.xib in Resources */,
+				4E15F9361DBA5EBE00BBD363 /* SceneKitBrick.xib in Resources */,
+				4E15F9371DBA5EBE00BBD363 /* SpriteKitBrick.xib in Resources */,
 				4E9A25AC1DAC216A00D7EA99 /* BrickKit.xcassets in Resources */,
 				4E9A25BC1DAC252200D7EA99 /* ImageBrick.xib in Resources */,
 				4E9A25C21DAC28D000D7EA99 /* LabelBrickChevron.xib in Resources */,
@@ -1036,6 +1098,8 @@
 				4E9A25801DAC0EAB00D7EA99 /* ButtonBrickWithChevron.xib in Resources */,
 				4E9A257E1DAC0EAB00D7EA99 /* BrickKit.xcassets in Resources */,
 				4E9A25841DAC0EAB00D7EA99 /* LabelBrickButton.xib in Resources */,
+				4E15F9311DBA5EAC00BBD363 /* SceneKitBrick.xib in Resources */,
+				4E15F9321DBA5EAC00BBD363 /* SpriteKitBrick.xib in Resources */,
 				4E9A25821DAC0EAB00D7EA99 /* ImageBrick.xib in Resources */,
 				4E9A257F1DAC0EAB00D7EA99 /* ButtonBrick.xib in Resources */,
 				4E9A25861DAC0EAB00D7EA99 /* LabelBrickImage.xib in Resources */,
@@ -1077,6 +1141,7 @@
 				4E9A25231DABEB6000D7EA99 /* OnScrollDownStickyLayoutBehavior.swift in Sources */,
 				4E9A25251DABEB6000D7EA99 /* SnapToPointLayoutBehavior.swift in Sources */,
 				4E9A252F1DABEB8200D7EA99 /* ImageDownloader.swift in Sources */,
+				4E15F93E1DBA5F0600BBD363 /* SpriteKitBrick.swift in Sources */,
 				4E9A25351DABEB8D00D7EA99 /* BrickCollectionViewDataSource.swift in Sources */,
 				4E9A25201DABEB6000D7EA99 /* MaxZIndexLayoutBehavior.swift in Sources */,
 				4E9A25241DABEB6000D7EA99 /* SetZIndexLayoutBehavior.swift in Sources */,
@@ -1099,6 +1164,7 @@
 				4E9A25391DABEB8D00D7EA99 /* BrickSectionDataSource.swift in Sources */,
 				4E9A252A1DABEB6900D7EA99 /* CollectionBrick.swift in Sources */,
 				4E9A25361DABEB8D00D7EA99 /* BrickDimension.swift in Sources */,
+				4E15F93C1DBA5F0600BBD363 /* SceneKitBrick.swift in Sources */,
 				4E9A25401DABEB9800D7EA99 /* BrickViewController.swift in Sources */,
 				4E9A25261DABEB6000D7EA99 /* SpotlightLayoutBehavior.swift in Sources */,
 				4E9A253D1DABEB9300D7EA99 /* FatalError.swift in Sources */,
@@ -1180,6 +1246,7 @@
 				93D9EBF21DA4057000D8C87A /* SnapToPointLayoutBehavior.swift in Sources */,
 				93D9EC131DA4057000D8C87A /* BrickUtils.swift in Sources */,
 				93D9EC091DA4057000D8C87A /* BrickLayout.swift in Sources */,
+				4E15F93D1DBA5F0600BBD363 /* SpriteKitBrick.swift in Sources */,
 				93D9EC021DA4057000D8C87A /* BrickCell.swift in Sources */,
 				93739BB71DA454AB00DD4B81 /* ImageBrick.swift in Sources */,
 				93D9EBF51DA4057000D8C87A /* StickyLayoutBehavior.swift in Sources */,
@@ -1202,6 +1269,7 @@
 				93D9EC031DA4057000D8C87A /* BrickSectionCell.swift in Sources */,
 				93D9EC061DA4057000D8C87A /* ImageDownloader.swift in Sources */,
 				93D9EC0E1DA4057000D8C87A /* BrickDimension.swift in Sources */,
+				4E15F93B1DBA5F0600BBD363 /* SceneKitBrick.swift in Sources */,
 				93D9EC171DA4057000D8C87A /* BrickViewController.swift in Sources */,
 				93D9EBED1DA4057000D8C87A /* MaxZIndexLayoutBehavior.swift in Sources */,
 				93D9EC141DA4057000D8C87A /* FatalError.swift in Sources */,

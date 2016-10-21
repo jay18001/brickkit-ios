@@ -87,9 +87,15 @@ class NavigationDataSource {
             ImagesInCollectionBrickViewController.self,
             ImagesInCollectionBrickHorizontalViewController.self
             ]),
+        NavigationItem(title: "Games", subTitle: "Examples of how to use Apple SpriteKit and SceneKit", viewControllers: [
+            GameViewController.self,
+            SpriteKitBrickContoller.self,
+            SceneKitBrickController.self
+            ]),
         NavigationItem(title: "Demo", subTitle: "Example Of Using BrickKit in Real Case", viewControllers: [
             MockTwitterViewController.self,
-            MockFlickrViewController.self])
+            MockFlickrViewController.self,
+            ])
         ]
 
 
