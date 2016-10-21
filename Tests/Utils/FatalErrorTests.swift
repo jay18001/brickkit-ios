@@ -10,13 +10,16 @@ import XCTest
 @testable import BrickKit
 
 private var locked = false
+private let timeInterval: NSTimeInterval = 0.002
 
 extension XCTestCase {
 
     func expectFatalError(expectedMessage: String? = nil, testcase: () -> Void) {
 
         repeat {
-            NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: 1))
+            if !NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: timeInterval)) {
+                NSThread.sleepForTimeInterval(timeInterval)
+            }
         } while(locked)
 
         locked = true
