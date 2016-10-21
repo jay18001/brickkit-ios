@@ -44,7 +44,6 @@ extension XCTestCase {
     }
 
     func expectFatalError(expectedMessage: String? = nil, testcase: () -> Void) {
-
         return
     }
     func expectFatalError2(expectedMessage: String? = nil, testcase: () -> Void) {
