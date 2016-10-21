@@ -16,7 +16,8 @@ extension XCTestCase {
     func expectFatalError(expectedMessage: String? = nil, testcase: () -> Void) {
 
         repeat {
-            NSRunLoop.currentRunLoop().runMode(NSRunLoopCommonModes, beforeDate: NSDate(timeIntervalSinceNow: 0.1))
+            sleep(1)
+//            NSRunLoop.currentRunLoop().runMode(NSRunLoopCommonModes, beforeDate: NSDate(timeIntervalSinceNow: 0.1))
         } while(locked)
 
         locked = true
