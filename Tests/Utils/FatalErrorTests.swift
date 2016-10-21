@@ -35,7 +35,8 @@ extension XCTestCase {
     }
 
     func expectFatalError(expectedMessage: String? = nil, testcase: () -> Void) {
-
+//        return
+        
         repeat {
             if !NSRunLoop.currentRunLoop().runMode(NSDefaultRunLoopMode, beforeDate: NSDate(timeIntervalSinceNow: timeInterval)) {
                 NSThread.sleepForTimeInterval(timeInterval)
@@ -50,9 +51,9 @@ extension XCTestCase {
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), testcase)
 
         waitForExpectationsWithTimeout(5) { _ in
-//            defer {
-//                expectation = nil
-//            }
+            defer {
+                expectation = nil
+            }
 
             if let message  = expectedMessage {
                 // assert
@@ -60,7 +61,7 @@ extension XCTestCase {
             }
 
             // clean up
-            FatalErrorUtil.restoreFatalError()
+//            FatalErrorUtil.restoreFatalError()
         }
     }
 }
