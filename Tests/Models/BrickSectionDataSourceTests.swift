@@ -11,10 +11,16 @@ import XCTest
 
 class BrickSectionDataSourceTests: XCTestCase {
     let collection: CollectionInfo = CollectionInfo(index: 0, identifier: "")
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         continueAfterFailure = true
+    }
+
+    override func tearDown() {
+        super.tearDown()
+        unlockFatalError()
     }
 
     func testInvalidateEmptySection() {

@@ -11,6 +11,11 @@ import XCTest
 
 class BrickCollectionViewDataSourceTests: XCTestCase {
 
+    override func tearDown() {
+        super.tearDown()
+        unlockFatalError()
+    }
+
     func testNoBrickCollectionView() {
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 320, height: 480), collectionViewLayout: UICollectionViewFlowLayout())
         let brickView = BrickCollectionView()

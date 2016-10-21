@@ -17,6 +17,11 @@ struct TestDeviceInfo: BrickDimensionDeviceInfo {
 
 class BrickDimensionTests: XCTestCase {
 
+    override func tearDown() {
+        super.tearDown()
+        unlockFatalError()
+    }
+
     #if os(iOS)
     func testViewAsDeviceInfo() {
         let view = UIView()

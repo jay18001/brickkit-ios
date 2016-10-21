@@ -21,6 +21,12 @@ class ButtonBrickTests: XCTestCase {
 
         brickCollectionView = BrickCollectionView(frame: CGRect(x: 0, y: 0, width: 320, height: 480))
     }
+    
+    override func tearDown() {
+        super.tearDown()
+        unlockFatalError()
+    }
+
     func noOp() {
         // no op for mock gesture
     }

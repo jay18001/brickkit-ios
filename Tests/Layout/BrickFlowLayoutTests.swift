@@ -11,6 +11,10 @@ import XCTest
 
 class BrickFlowLayoutTests: BrickFlowLayoutBaseTests {
 
+    override func tearDown() {
+        super.tearDown()
+        unlockFatalError()
+    }
 
     func testCreateLayoutWithNoSections() {
         setDataSources(SectionsCollectionViewDataSource(sections: []), brickLayoutDataSource: FixedBrickLayoutDataSource())

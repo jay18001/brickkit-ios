@@ -19,6 +19,11 @@ class BrickCollectionViewTests: XCTestCase {
         brickView = BrickCollectionView(frame: CGRect(x: 0, y: 0, width: 320, height: 480))
     }
 
+    override func tearDown() {
+        super.tearDown()
+        unlockFatalError()
+    }
+
     func testSetWrongCollectionViewLayout() {
         expectFatalError("BrickCollectionView: the layout needs to be of type `BrickLayout`") {
             self.brickView.collectionViewLayout = UICollectionViewFlowLayout()

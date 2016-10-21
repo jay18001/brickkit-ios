@@ -23,6 +23,11 @@ class BrickLayoutSectionTests: XCTestCase {
         continueAfterFailure = false
     }
 
+    override func tearDown() {
+        super.tearDown()
+        unlockFatalError()
+    }
+
     private func createSection(widthRatios: [CGFloat], heights: [CGFloat], edgeInsets: UIEdgeInsets, inset: CGFloat, sectionWidth: CGFloat, updatedAttributes: OnAttributesUpdatedHandler? = nil) -> BrickLayoutSection {
         dataSource = FixedBrickLayoutSectionDataSource(widthRatios: widthRatios, heights: heights, edgeInsets: edgeInsets, inset: inset)
         let section = BrickLayoutSection(

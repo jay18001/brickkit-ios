@@ -22,6 +22,11 @@ class BrickViewControllerTests: XCTestCase {
         width = brickViewController.view.frame.width
     }
 
+    override func tearDown() {
+        super.tearDown()
+        unlockFatalError()
+    }
+
     func testDeinit() {
         var viewController: BrickViewController? = TestBrickViewController(nibName: "TestBrickViewController", bundle: NSBundle(forClass: self.dynamicType))
 

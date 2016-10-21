@@ -29,6 +29,11 @@ class SnapToPointLayoutBehaviorTests: XCTestCase {
         brickView = BrickCollectionView(frame: CGRect(x: 0, y: 0, width: 320, height: 480))
     }
 
+    override func tearDown() {
+        super.tearDown()
+        unlockFatalError()
+    }
+
     func testWithoutCollectionView() {
         let layout = BrickFlowLayout()
         let snapBehavior = SnapToPointLayoutBehavior(scrollDirection: .Horizontal(.Center))
