@@ -10,7 +10,7 @@ import XCTest
 @testable import BrickKit
 
 private var locked = false
-private let timeInterval: NSTimeInterval = 0.002
+private let timeInterval: NSTimeInterval = 2
 
 extension XCTestCase {
 
