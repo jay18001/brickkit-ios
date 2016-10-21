@@ -59,7 +59,7 @@ extension XCTestCase {
         // act, perform on separate thead because a call to fatalError pauses forever
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), testcase)
 
-        waitForExpectationsWithTimeout(5) { _ in
+        waitForExpectationsWithTimeout(25) { _ in
             defer {
                 FatalErrorHolder.expectation = nil
             }
