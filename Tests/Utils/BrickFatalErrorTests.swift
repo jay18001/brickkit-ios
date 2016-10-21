@@ -11,7 +11,7 @@ import XCTest
 
 private let brickFrame: CGRect = CGRect(x: 0, y: 0, width: 320, height: 480)
 
-class BrickFatalErrorTests: XCTestCase {
+class ZBrickFatalErrorTests: XCTestCase {
 
     // Because of issues with Travis not running the expectFatalError tests, we have them all in one test
     func testAllFatalErrors() {
