@@ -25,12 +25,12 @@ class SimpleRepeatBrickViewController: BrickViewController, LabelBrickCellDataSo
 
         self.brickCollectionView.registerBrickClass(LabelBrick.self)
 
-        self.layout.alignRowHeights = true
+        self.layout.alignRowHeights = false //true
 
         self.view.backgroundColor = .brickBackground
 
         let section = BrickSection(bricks: [
-            LabelBrick(BrickIdentifiers.repeatLabel, width: .Ratio(ratio: 0.5), height: .Auto(estimate: .Fixed(size: 50)), backgroundColor: .brickGray1, dataSource: self),
+            LabelBrick(BrickIdentifiers.repeatLabel, width: .HorizontalSizeClass(regular: .Ratio(ratio: 1.0 / 2.0), compact: .Ratio(ratio: 1)), height: .Ratio(ratio:  11.0 / 16.0), backgroundColor: .brickGray1, dataSource: self),
             ], inset: 10, edgeInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
 
         section.repeatCountDataSource = self
