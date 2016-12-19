@@ -154,7 +154,7 @@ class ImageBrickTests: XCTestCase {
         brickView.registerBrickClass(ImageBrick.self)
 
         let section = BrickSection(bricks: [
-            ImageBrick(dataSource: ImageURLBrickModel(url: imageURL, contentMode: .ScaleAspectFill)),
+            ImageBrick("imageBrick", dataSource: ImageURLBrickModel(url: imageURL, contentMode: .ScaleAspectFill)),
             ])
         brickView.setSection(section)
         brickView.layoutSubviews()
@@ -166,11 +166,64 @@ class ImageBrickTests: XCTestCase {
 
         waitForExpectationsWithTimeout(500, handler: nil)
         brickView.layoutIfNeeded()
-
+        brickView.invalidateBricks()
+        
         let ratio:CGFloat = 378 / 659
         XCTAssertEqualWithAccuracy(cell1!.frame.height, 320 * ratio, accuracy: 0.5)
         XCTAssertEqualWithAccuracy(cell1!.imageView.frame.height, 320 * ratio, accuracy: 0.5)
     }
+    
+    func testURLImageScaleResetSection() {
+        var expectation = expectationWithDescription("Wait for image to download")
+        let defaultImageDownloader = BrickCollectionView.imageDownloader
+        
+        var fixedImageDownloader = FixedNSURLSessionImageDownloader { (success) in
+            expectation.fulfill()
+        }
+        
+        defer {
+            BrickCollectionView.imageDownloader = defaultImageDownloader
+        }
+        
+        BrickCollectionView.imageDownloader = fixedImageDownloader
+        
+        let delegate = FixedDelegate()
+        brickView.layout.delegate = delegate
+        
+        brickView.registerBrickClass(ImageBrick.self)
+        
+        let section = BrickSection(bricks: [
+            ImageBrick("imageBrick", dataSource: ImageURLBrickModel(url: imageURL, contentMode: .ScaleAspectFill)),
+            ])
+        brickView.setSection(section)
+        brickView.layoutSubviews()
+        
+        let cell1 = brickView.cellForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 1)) as? ImageBrickCell
+        cell1?.layoutIfNeeded()
+        XCTAssertEqual(cell1?.frame, CGRect(x: 0, y: 0, width: 320, height: 50))
+        XCTAssertEqual(cell1?.imageView.frame, CGRect(x: 0, y: 0, width: 320, height: 50))
+        
+        waitForExpectationsWithTimeout(10, handler: nil)
+        
+        expectation = expectationWithDescription("Wait for image to download for the 2nd time")
+        fixedImageDownloader = FixedNSURLSessionImageDownloader { (success) in
+            expectation.fulfill()
+        }
+        BrickCollectionView.imageDownloader = fixedImageDownloader
+        
+        brickView.setSection(section)
+        brickView.layoutIfNeeded()
+        
+        waitForExpectationsWithTimeout(10, handler: nil)
+        
+        let cell2 = brickView.cellForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 1)) as? ImageBrickCell
+        cell2?.layoutIfNeeded()
+        let ratio:CGFloat = 378 / 659
+        XCTAssertTrue(delegate.didUpdateCalled)
+        XCTAssertEqualWithAccuracy(cell2!.frame.height, 320 * ratio, accuracy: 0.5)
+        XCTAssertEqualWithAccuracy(cell2!.imageView.frame.height, 320 * ratio, accuracy: 0.5)
+    }
+
 }
 
 class FixedNSURLSessionImageDownloader: NSURLSessionImageDownloader {
