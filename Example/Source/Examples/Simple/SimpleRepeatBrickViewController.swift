@@ -24,12 +24,18 @@ class SimpleRepeatBrickViewController: BrickViewController, LabelBrickCellDataSo
         super.viewDidLoad()
 
         self.brickCollectionView.registerBrickClass(LabelBrick.self)
+        self.brickCollectionView.registerBrickClass(ImageBrick.self)
 
         self.view.backgroundColor = .brickBackground
-
-        let section = BrickSection(bricks: [
-            LabelBrick(BrickIdentifiers.repeatLabel, width: .Ratio(ratio: 1/2), height: .Auto(estimate: .Fixed(size: 50)), backgroundColor: .brickGray1, dataSource: self),
-            ], inset: 10, edgeInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
+        let widthDimension: BrickDimension = BrickDimension.HorizontalSizeClass(regular: .Orientation(landscape: .Ratio(ratio: 1/5.0),
+            portrait: .Ratio(ratio: 1/4)),
+                                                                                compact: .Ratio(ratio: 1/2))
+        
+        self.view.backgroundColor = .brickBackground
+         let section = BrickSection(bricks: [ImageBrick(BrickIdentifiers.repeatLabel, width: widthDimension, height: .Ratio(ratio: 1.625), dataSource: self)], inset: 8, edgeInsets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+//        let section = BrickSection(bricks: [
+//            LabelBrick(BrickIdentifiers.repeatLabel, width: .Ratio(ratio: 1/2), height: .Auto(estimate: .Fixed(size: 50)), backgroundColor: .brickGray1, dataSource: self),
+//            ], inset: 10, edgeInsets: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
 
         section.repeatCountDataSource = self
 
@@ -70,3 +76,14 @@ class SimpleRepeatBrickViewController: BrickViewController, LabelBrickCellDataSo
         cell.configure()
     }
 }
+
+extension SimpleRepeatBrickViewController: ImageBrickDataSource {
+    func imageForImageBrickCell(imageBrickCell: ImageBrickCell) -> UIImage? {
+        return UIImage(named: "image\(imageBrickCell.collectionIndex)")
+    }
+    
+    func contentModeForImageBrickCell(imageBrickCell: ImageBrickCell) -> UIViewContentMode {
+        return .ScaleAspectFill
+    }
+}
+
